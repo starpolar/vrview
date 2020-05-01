@@ -13,7 +13,8 @@
     "three": "^0.84.0",
     "urijs": "^1.18.2",
     "webvr-boilerplate": "^0.4.6",
-    "webvr-polyfill": "^0.9.38"
+    "webvr-polyfill": "^0.9.38",
+    "snyk": "^1.316.1"
   },
   "devDependencies": {
     "browserify": "^13.1.1",
@@ -41,7 +42,9 @@
     "build-three-closure": "npm run _mkdir && rollup -c src/third_party/three/rollup.config.js && java -jar src/third_party/three/closure-compiler-v20160713.jar --warning_level=VERBOSE --jscomp_off=globalThis --jscomp_off=checkTypes --externs src/third_party/three/externs.js --language_in=ECMASCRIPT5_STRICT --js build/three.js --js_output_file build/three.min.js",
     "build-dms": "npm run _mkdir && uglifyjs scripts/js/device-motion-sender.js > build/device-motion-sender.min.js",
     "build-all": "npm run build-analytics; npm run build-three-closure; npm run build-dms",
-    "test": "npm run build"
+    "test": "npm run build",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -52,5 +55,6 @@
   "bugs": {
     "url": "https://github.com/google/vrview/issues"
   },
-  "homepage": "https://github.com/google/vrview#readme"
+  "homepage": "https://github.com/google/vrview#readme",
+  "snyk": true
 }
